@@ -30,6 +30,11 @@ class TaskModel{
         return($stament->execute()) ?  $id : false;
         
     }
+    public function delete($id){
+        $stament = $this->PDO->prepare("DELETE FROM tasks WHERE id = :id");
+        $stament->bindParam(":id",$id);
+        return ($stament->execute()) ? true : false;
+    }
 
 }
 

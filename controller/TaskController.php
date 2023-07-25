@@ -21,6 +21,9 @@ class TaskController{
     public function update($id, $taskname) {
         return($this->model->update($id, $taskname)) != false ? header("Location:show.php?id=".$id) : header("Location:index.php");
     }
+    public function delete($id){
+        return ($this->model->delete($id)) ? header("Location:index.php") : header("Location:show.php?id=".$id);
+    }
 }
 
 ?>

@@ -6,7 +6,7 @@ $rows = ($obj->index());
 ?>
 
 <div class="mb-3">
-    <a href="c://xampp/htdocs/femcoders/todoList/view/tasks/create.php" class="btn btn-primary">Add new task</a>
+    <a href="./create.php" class="btn btn-primary">Add new task</a>
 </div>
 <table class="table">
     <thead>
@@ -41,7 +41,7 @@ $rows = ($obj->index());
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-success" data-bs-dismiss="modal">Close</button>
-                                        <a href="delete.php?ID=<?= $date[0] ?>" class="btn btn-danger">Delet</a>
+                                        <a href="delete.php?id=<?= $row[0] ?>" class="btn btn-danger">Delet</a>
 
                                     </div>
                                 </div>
