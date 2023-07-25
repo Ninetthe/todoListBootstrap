@@ -1,6 +1,6 @@
 <?php 
 
-class taskModel{
+class TaskModel{
     private $PDO;
     
     public function __construct()
@@ -10,8 +10,13 @@ class taskModel{
         $this->PDO = $con->conexion();
     }
 
-    public function insert($nombre){
-
+    public function insert($taskname, $taskdescription, $taskstates, $taskdates){
+        $stament = $this->PDO->prepare("INSERT INTO tasks(taskname, taskdescription, taskstates, taskdates) VALUES(?, ?, ?, ?)");
+        $stament->bindParam(":taskname",$taskname);
+        $stament->bindParam(":taskdescription",$taskdescription);
+        $stament->bindParam(":taskstates",$taskstates);
+        $stament->bindParam(":taskdates",$taskdates);
+        return ($stament->execute()) ? $this->PDO->lastInsertId() : false;
     }
 }
 

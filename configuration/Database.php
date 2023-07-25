@@ -18,8 +18,6 @@ class Database{
     
 }
 
-$obj = new Database();
-print_r($obj->conexion());
 
 
 ?>
