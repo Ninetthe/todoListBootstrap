@@ -4,7 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>TO-DO LIST</title>
+    <title><?php 
+        echo (empty($_GET['id']))
+        ? ((strpos($_SERVER['REQUEST_URI'], 'create')) ? "Adding new task " : "Index ")
+        : ((strpos($_SERVER['REQUEST_URI'], 'show')) ? "Task details ".$_GET['id']  : "Update the task ".$_GET['id'] );
+    ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
 
@@ -24,7 +28,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="/femcoders/todoList/view/tasks/index.php">Tasks</a></li>
-                                <li><a class="dropdown-item" href="/femcoders/todoList/view/tasks/create.php">Add new task</a></li>
+                                <li><a class="dropdown-item" href="c://xampp/htdocs/femcoders/todoList/view/tasks/create.php">Add new task</a></li>
                             </ul>
                         </li>
                     </ul>
